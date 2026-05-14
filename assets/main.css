@@ -43,6 +43,12 @@ a.current{color: #52739e;}
 a.current:hover{color: #e82945;}
 a:hover{color: #b2132e;}
 a:active{color: #e82945;}
+/* Content section containers — preserve heading indentation hierarchy */
+.lang-en, .lang-zh {
+    margin-left: 0;
+    padding-left: 0;
+}
+
 h1,h2,h3,h4{clear:left; color: #813c54; margin:1.5em 0em 1em 0em; font-family:'Roboto Slab',serif; text-shadow: 1px 1px 2px #d0d0d0;}
 h1{font-size:2.67em;}
 h2{font-size:2.00em; margin-left: 0px;}
