@@ -1,0 +1,7 @@
+- name: Cozy Coffee
+  logo: assets/co-organizers/cozy-logo.jpg
+  style: "width: 80%"
+- name: Fun Workshop
+  logo: assets/favicon.png
+  url: "https://github.com/Fun-Research-Workshop/fun-workshop"
+  style: "width: 80%"

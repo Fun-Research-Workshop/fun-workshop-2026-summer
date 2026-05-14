@@ -1,0 +1,125 @@
+---
+---
+<h2 class="lang-en">Workshop Program</h2>
+<h2 class="lang-zh">工作坊日程</h2>
+
+{% for item in site.data.program_confirmed %}
+<table id="{{ item.id }}">
+    <tr>
+        <td class="date" rowspan="3">
+            <span class="lang-en">{{ item.date_en | newline_to_br }}</span>
+            <span class="lang-zh">{{ item.date_zh | newline_to_br }}</span>
+            
+            {% if item.poster_en or item.poster_zh %}
+            <div class="poster" style="margin-top: 15px;">
+                <span class="lang-en">{% if item.poster_en %}<a href="{{ item.poster_en }}" target="_blank"><img src="{{ item.poster_en }}" alt="Poster" style="max-width: 100%; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" /></a>{% endif %}</span>
+                <span class="lang-zh">{% if item.poster_zh %}<a href="{{ item.poster_zh }}" target="_blank"><img src="{{ item.poster_zh }}" alt="海报" style="max-width: 100%; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" /></a>{% endif %}</span>
+            </div>
+            {% endif %}
+        </td>
+        <td class="title">
+            <span class="lang-en">{{ item.title_en }}</span>
+            <span class="lang-zh">{{ item.title_zh }}</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="speaker">
+            {% for speaker in item.speakers %}
+            <p>
+                {% if speaker.id %}
+                {% assign s = site.data.speakers | where: "id", speaker.id | first %}
+                <a href="#speakers?id={{ s.id }}"><span class="lang-en">{{ s.name_en }}</span><span class="lang-zh">{{ s.name_zh }}</span></a>, <span class="lang-en">{{ s.title_en }}</span><span class="lang-zh">{{ s.title_zh }}</span>
+                {% else %}
+                <span class="lang-en">{{ speaker.name_en }}</span><span class="lang-zh">{{ speaker.name_zh }}</span>
+                {% endif %}
+            </p>
+            {% endfor %}
+        </td>
+    </tr>
+    <tr>
+        <td class="abstract">
+            {% if item.abstract_en and item.abstract_en != "" %}
+            <div class="abstract-text">
+                <span class="lang-en">{{ item.abstract_en | newline_to_br }}</span>
+                <span class="lang-zh">{{ item.abstract_zh | newline_to_br }}</span>
+            </div>
+            {% endif %}
+            
+            {% if item.resources %}
+            <div class="resources" style="margin-top: 8px;">
+                {% for res in item.resources %}
+                <a href="{{ res.url }}" target="_blank" class="resource-link" style="display: inline-block; margin-right: 15px;">
+                    <span class="lang-en">🔗 {{ res.name_en }}</span>
+                    <span class="lang-zh">🔗 {{ res.name_zh }}</span>
+                </a>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% unless item.abstract_en or item.resources %}
+            <!-- <span class="lang-en">Here&rsquo;s an abstract.</span>
+            <span class="lang-zh">这是摘要。</span> -->
+            {% endunless %}
+        </td>
+    </tr>
+</table>
+{% endfor %}
+
+<h2 class="lang-en">Agreed Presenters and Topics</h2>
+<h2 class="lang-zh">确认的演讲者与主题</h2>
+
+{% for item in site.data.program_tbc %}
+<table id="{{ item.id }}">
+    <tr>
+        <td class="date" rowspan="3">
+            {% if item.poster_en or item.poster_zh %}
+            <div class="poster" style="margin-top: 15px;">
+                <span class="lang-en">{% if item.poster_en %}<a href="{{ item.poster_en }}" target="_blank"><img src="{{ item.poster_en }}" alt="Poster" style="max-width: 100%; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" /></a>{% endif %}</span>
+                <span class="lang-zh">{% if item.poster_zh %}<a href="{{ item.poster_zh }}" target="_blank"><img src="{{ item.poster_zh }}" alt="海报" style="max-width: 100%; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);" /></a>{% endif %}</span>
+            </div>
+            {% endif %}
+        </td>
+        <td class="title">
+            <span class="lang-en">{{ item.title_en }}</span>
+            <span class="lang-zh">{{ item.title_zh }}</span>
+        </td>
+    </tr>
+    <tr>
+        <td class="speaker">
+            {% for speaker in item.speakers %}
+            <p>
+                {% if speaker.id %}
+                {% assign s = site.data.speakers | where: "id", speaker.id | first %}
+                <a href="#speakers?id={{ s.id }}"><span class="lang-en">{{ s.name_en }}</span><span class="lang-zh">{{ s.name_zh }}</span></a>, <span class="lang-en">{{ s.title_en }}</span><span class="lang-zh">{{ s.title_zh }}</span>
+                {% else %}
+                <span class="lang-en">{{ speaker.name_en }}</span><span class="lang-zh">{{ speaker.name_zh }}</span>
+                {% endif %}
+            </p>
+            {% endfor %}
+        </td>
+    </tr>
+    <tr>
+        <td class="abstract">
+            {% if item.abstract_en and item.abstract_en != "" %}
+            <div class="abstract-text">
+                <span class="lang-en">{{ item.abstract_en | newline_to_br }}</span>
+                <span class="lang-zh">{{ item.abstract_zh | newline_to_br }}</span>
+            </div>
+            {% endif %}
+            
+            {% if item.resources %}
+            <div class="resources" style="margin-top: 8px;">
+                {% for res in item.resources %}
+                <a href="{{ res.url }}" target="_blank" class="resource-link" style="display: inline-block; margin-right: 15px;">
+                    <span class="lang-en">🔗 {{ res.name_en }}</span>
+                    <span class="lang-zh">🔗 {{ res.name_zh }}</span>
+                </a>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <!-- <span class="lang-en">Here&rsquo;s an abstract.</span>
+            <span class="lang-zh">这是摘要。</span> -->
+        </td>
+    </tr>
+</table>
+{% endfor %}

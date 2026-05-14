@@ -1,0 +1,68 @@
+<br>
+<p>
+    <span class="lang-en">Click on the flyer below to download</span>
+    <span class="lang-zh">点击下方海报下载</span>
+</p>
+
+<table class="flyers" style="width: 100%; text-align: center;">
+    {% assign all_programs = "" | split: "," %}
+    {% for item in site.data.program_confirmed %}
+        {% if item.poster_en and item.poster_en != "" %}
+            {% assign all_programs = all_programs | push: item %}
+        {% endif %}
+    {% endfor %}
+    {% for item in site.data.program_tbc %}
+        {% if item.poster_en and item.poster_en != "" %}
+            {% assign all_programs = all_programs | push: item %}
+        {% endif %}
+    {% endfor %}
+    {% assign all_programs = all_programs | reverse %}
+
+    <tbody class="lang-en">
+        <tr>
+            <td class="flyer" colspan="2" style="padding-bottom: 20px;">
+                <a href="assets/posters/Fun_Workshop-long-term-big_screen.png">
+                    <img src="assets/posters/Fun_Workshop-long-term-big_screen.png" alt="Fun Workshop long term" style="width:80%">
+                </a>
+                <p style="margin-top: 10px;">Fun Workshop long term</p>
+            </td>
+        </tr>
+        {% for item in all_programs %}
+            {% assign mod = forloop.index0 | modulo: 2 %}
+            {% if mod == 0 %}<tr>{% endif %}
+            <td class="flyer" style="width: 50%; padding-bottom: 20px; vertical-align: top;">
+                <a href="{{ item.poster_en }}">
+                    <img src="{{ item.poster_en }}" alt="{{ item.title_en }}" style="width:80%">
+                </a>
+                <p style="margin-top: 10px;">{{ item.title_en }}</p>
+            </td>
+            {% if mod == 1 or forloop.last %}
+                {% if mod == 0 and forloop.last %}<td style="width: 50%;"></td>{% endif %}
+            </tr>{% endif %}
+        {% endfor %}
+    </tbody>
+
+    <tbody class="lang-zh">
+        <tr>
+            <td class="flyer" colspan="2" style="padding-bottom: 20px;">
+                <a href="assets/posters/Fun_Workshop-long-term-big_screen.png">
+                    <img src="assets/posters/Fun_Workshop-long-term-big_screen.png" alt="Fun Workshop long term" style="width:80%">
+                </a>
+                <p style="margin-top: 10px;">Fun Workshop 长期海报</p>
+            </td>
+        </tr>
+        {% for item in all_programs %}
+            {% assign mod = forloop.index0 | modulo: 2 %}
+            {% if mod == 0 %}<tr>{% endif %}
+            <td class="flyer" style="width: 50%; padding-bottom: 20px; vertical-align: top;">
+                <a href="{{ item.poster_zh }}">
+                    <img src="{{ item.poster_zh }}" alt="{{ item.title_zh }}" style="width:80%">
+                </a>
+                <p style="margin-top: 10px;">{{ item.title_zh }}</p>
+            </td>
+            {% if mod == 1 or forloop.last %}
+                {% if mod == 0 and forloop.last %}<td style="width: 50%;"></td>{% endif %}
+            </tr>{% endif %}
+        {% endfor %}
+    </tbody>
+</table>

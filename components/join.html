@@ -1,0 +1,179 @@
+<style>
+    .join-form {
+        margin-top: 20px;
+        background-color: #f9f9f9;
+        padding: 20px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .checkbox-group {
+        margin-bottom: 10px;
+    }
+
+    .checkbox-group label {
+        font-weight: normal;
+        display: inline-block;
+        margin-left: 5px;
+        margin-bottom: 8px;
+        cursor: pointer;
+    }
+
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        font-family: inherit;
+    }
+
+    button.submit-btn {
+        background-color: #0056b3;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.2s;
+    }
+
+    button.submit-btn:hover {
+        background-color: #004494;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .join-form {
+            background-color: #222;
+            border-color: #444;
+        }
+
+        .form-group label {
+            color: #ddd;
+        }
+
+        input[type="text"],
+        textarea {
+            background-color: #333;
+            color: #fff;
+            border-color: #555;
+        }
+
+        button.submit-btn {
+            background-color: #28a745;
+        }
+
+        button.submit-btn:hover {
+            background-color: #218838;
+        }
+    }
+</style>
+
+<h2 class="lang-en">Join ClawTwin 探索计划</h2>
+<h2 class="lang-zh">加入 ClawTwin 探索计划</h2>
+
+<div class="lang-en">
+    <p>
+        Whether you're a developer, designer, AI ethics researcher, or just curious — we have a place for you!
+        Fill in the form below and we'll get back to you soon.
+    </p>
+    <p>
+        For group purchases (¥30/ticket with discount) or sponsorship, please also reach out directly via email.
+    </p>
+</div>
+
+<div class="lang-zh">
+    <p>
+        无论你是开发者、设计师、AI 伦理研究者，还是单纯好奇 — 这里都有你的位置！
+        填写下表，我们会尽快联系你。
+    </p>
+    <p>
+        团体购票（¥30 折扣票）或赞助商席位，请通过邮件直接联系。
+    </p>
+</div>
+
+<div class="join-form">
+    <div class="form-group">
+        <label for="volunteer-name">
+            <span class="lang-en">Your Name / How to address you:</span>
+            <span class="lang-zh">姓名或称呼：</span>
+        </label>
+        <input type="text" id="volunteer-name" placeholder="Enter your name / 输入您的名字">
+    </div>
+
+    <div class="form-group">
+        <label>
+            <span class="lang-en">Interested Roles (Multiple choices allowed):</span>
+            <span class="lang-zh">感兴趣的角色（可多选）：</span>
+        </label>
+        <div class="checkbox-group">
+            <div style="margin-bottom: 8px;">
+                <input type="checkbox" id="role-web" value="Development / 开发">
+                <label for="role-web">
+                    <span class="lang-en"><strong>Development:</strong> Core logic, API integration, GitHub collaboration.</span>
+                    <span class="lang-zh"><strong>开发：</strong>核心逻辑、API 接入、GitHub 协作。</span>
+                </label>
+            </div>
+
+            <div style="margin-bottom: 8px;">
+                <input type="checkbox" id="role-design" value="Design / 设计">
+                <label for="role-design">
+                    <span class="lang-en"><strong>Design:</strong> UI/UX or "training" AI's personality.</span>
+                    <span class="lang-zh"><strong>设计：</strong>UI/UX 或"调教"AI 的性格。</span>
+                </label>
+            </div>
+
+            <div style="margin-bottom: 8px;">
+                <input type="checkbox" id="role-ethics" value="AI Ethics / AI伦理">
+                <label for="role-ethics">
+                    <span class="lang-en"><strong>AI Ethics:</strong> Privacy, bias, safety guardrails research.</span>
+                    <span class="lang-zh"><strong>AI 伦理：</strong>隐私、偏见、安全护栏研究。</span>
+                </label>
+            </div>
+
+            <div style="margin-bottom: 8px;">
+                <input type="checkbox" id="role-claw" value="OpenClaw Workshop / OpenClaw工坊">
+                <label for="role-claw">
+                    <span class="lang-en"><strong>OpenClaw Workshop:</strong> Want to learn or help teach Claw basics.</span>
+                    <span class="lang-zh"><strong>OpenClaw 工坊：</strong>想学习或协助讲授 Claw 基础知识。</span>
+                </label>
+            </div>
+
+            <div style="margin-bottom: 8px;">
+                <input type="checkbox" id="role-attend" value="Attend / 参加活动">
+                <label for="role-attend">
+                    <span class="lang-en"><strong>Attend:</strong> Just want to participate as a member.</span>
+                    <span class="lang-zh"><strong>参加活动：</strong>只是想作为成员参与。</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="volunteer-suggestion">
+            <span class="lang-en">Other Suggestions or Self-recommendation:</span>
+            <span class="lang-zh">其他建议或自荐信息：</span>
+        </label>
+        <textarea id="volunteer-suggestion" rows="5"
+            placeholder="Tell us about your skills, ideas, or anything you'd like to share! / 告诉我们你的技能、想法，或任何想分享的内容！"></textarea>
+    </div>
+
+    <button class="submit-btn" onclick="submitVolunteerForm()">
+        <span class="lang-en">Draft Application Email</span>
+        <span class="lang-zh">起草申请邮件</span>
+    </button>
+</div>

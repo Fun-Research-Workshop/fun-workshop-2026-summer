@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/png" href="assets/favicon.png" />
+    <link rel="stylesheet" type="text/css" media="all" href="assets/main.css" />
+    <meta name="description" content="Fun Workshop">
+    <meta name="resource-type" content="document">
+    <meta name="distribution" content="global">
+    <meta name="KeyWords" content="Workshop">
+    <title>Fun Workshop</title>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=default">
+        </script>
+    <style>
+        html:not([lang="zh"]) .lang-zh {
+            display: none !important;
+        }
+
+        html[lang="zh"] .lang-en {
+            display: none !important;
+        }
+
+        /* Loading indicator styles */
+        #loading-indicator {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            font-style: italic;
+            color: #888;
+        }
+    </style>
+    <script>
+        function toggleLanguage(event) {
+            if (event) event.preventDefault();
+            const html = document.documentElement;
+            if (html.getAttribute('lang') === 'zh') {
+                html.setAttribute('lang', 'en');
+                localStorage.setItem('lang', 'en');
+            } else {
+                html.setAttribute('lang', 'zh');
+                localStorage.setItem('lang', 'zh');
+            }
+        }
+
+        // Cache for loaded pages
+        const pageCache = {};
+
+        async function loadPageContent(pageId) {
+            const contentContainer = document.getElementById('main-content');
+            const loadingIndicator = document.getElementById('loading-indicator');
+
+            // If we already loaded this page, just use the cache
+            if (pageCache[pageId]) {
+                contentContainer.innerHTML = pageCache[pageId];
+                return;
+            }
+
+            // Show loading state and clear current content
+            contentContainer.innerHTML = '';
+            loadingIndicator.style.display = 'block';
+
+            try {
+                // Fetch the component HTML file
+                const response = await fetch(`components/${pageId}.html`);
+
+                if (!response.ok) {
+                    throw new Error(`Page not found: ${response.status}`);
+                }
+
+                const html = await response.text();
+
+                // Cache it and display it
+                pageCache[pageId] = html;
+                contentContainer.innerHTML = html;
+            } catch (error) {
+                console.error("Error loading page:", error);
+                contentContainer.innerHTML = `
+                    <div style="text-align:center; padding: 40px;">
+                        <span class="lang-en">Sorry, there was an error loading this page content.</span>
+                        <span class="lang-zh">抱歉，加载此页面内容时出错。</span>
+                    </div>
+                `;
+            } finally {
+                loadingIndicator.style.display = 'none';
+
+                // Trigger MathJax processing if there's any math on the newly loaded page
+                if (window.MathJax) {
+                    window.MathJax.Hub.Queue(["Typeset", window.MathJax.Hub, contentContainer]);
+                }
+            }
+        }
+
+        function handleHashChange() {
+            let hash = window.location.hash || '#program';
+            let baseHash = hash.split('?')[0];
+            let targetId = hash.split('?id=')[1];
+
+            // Fallback for invalid hashes
+            if (!['#home', '#program', '#speakers', '#directions', '#flyer', '#join'].includes(baseHash)) {
+                baseHash = '#program';
+                hash = '#program';
+            }
+            const pageId = baseHash.substring(1);
+
+            // Update nav link highlighting
+            document.querySelectorAll('.nav-link').forEach(el => el.classList.remove('current'));
+            const targetLink = document.querySelector(`.nav-link[href="${baseHash}"]`);
+            if (targetLink) {
+                targetLink.classList.add('current');
+            }
+
+            // Dynamically load the content into the DOM
+            loadPageContent(pageId).then(() => {
+                if (targetId) {
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        setTimeout(() => {
+                            targetEl.scrollIntoView({ behavior: 'smooth' });
+                        }, 100);
+                    }
+                }
+            });
+        }
+
+        // Initialize language from localStorage if available
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('lang');
+            if (savedLang) {
+                document.documentElement.setAttribute('lang', savedLang);
+            }
+            // Initialize SPA routing
+            handleHashChange();
+        });
+
+        window.addEventListener('hashchange', handleHashChange);
+
+        function submitVolunteerForm() {
+            const name = document.getElementById('volunteer-name') ? document.getElementById('volunteer-name').value.trim() : '';
+            const suggestions = document.getElementById('volunteer-suggestion') ? document.getElementById('volunteer-suggestion').value.trim() : '';
+
+            const roles = [];
+            if (document.getElementById('role-web') && document.getElementById('role-web').checked) roles.push(document.getElementById('role-web').value);
+            if (document.getElementById('role-exec') && document.getElementById('role-exec').checked) roles.push(document.getElementById('role-exec').value);
+            if (document.getElementById('role-plan') && document.getElementById('role-plan').checked) roles.push(document.getElementById('role-plan').value);
+
+            if (!name && roles.length === 0 && !suggestions) {
+                const lang = document.documentElement.getAttribute('lang');
+                if (lang === 'zh') {
+                    alert('请至少填写一些您的信息！');
+                } else {
+                    alert('Please provide some information before drafting the email!');
+                }
+                return;
+            }
+
+            let body = `Name: ${name || 'Not provided'}\n\n`;
+
+            body += `Interested Roles:\n`;
+            if (roles.length > 0) {
+                body += `- ${roles.join('\n- ')}\n\n`;
+            } else {
+                body += `None specified\n\n`;
+            }
+
+            body += `Suggestions / Self-recommendation:\n`;
+            if (suggestions) {
+                body += `${suggestions}\n\n`;
+            } else {
+                body += `None\n\n`;
+            }
+
+            body += `-----\nSent from the Fun Workshop website via Join Us page.`;
+
+            const subject = encodeURIComponent("Application for Fun Workshop Volunteer / 申请加入 Fun Workshop 志愿团队");
+            const mailtoLink = `mailto:shiyao.zhang14@student.xjtlu.edu.cn?subject=${subject}&body=${encodeURIComponent(body)}`;
+
+            window.location.href = mailtoLink;
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="banner">
+        <img src="assets/banner.jpg" alt="Fun Workshop Banner">
+        <div class="top-left">
+            <span class="title1">Fun</span><span class="title2">Workshop</span> <span class="year">2026 Summer</span>
+        </div>
+        <div class="bottom-right">
+            <span class="lang-en">June - August, 2026 <br> Taicang, Suzhou</span>
+            <span class="lang-zh">2026年6月 - 8月 <br> 太仓，苏州</span>
+        </div>
+    </div>
+
+    <table class="navigation">
+        <tr>
+            
+            <td class="navigation">
+                <a class="nav-link current" title="Workshop Program" href="#program">
+                    <span class="lang-en">Program</span>
+                    <span class="lang-zh">日程</span>
+                </a>
+            </td>
+            <!-- <td class="navigation">
+                <a class="nav-link" title="Directions to the Workshop" href="#directions">
+                    <span class="lang-en">Directions</span>
+                    <span class="lang-zh">交通</span>
+                </a>
+            </td>
+            <td class="navigation">
+                <a class="nav-link" title="Workshop Flyer" href="#flyer">
+                    <span class="lang-en">Flyer</span>
+                    <span class="lang-zh">海报</span>
+                </a>
+            </td> -->
+             <td class="navigation">
+                <a class="nav-link" title="Speakers" href="#speakers">
+                    <span class="lang-en">Speakers</span>
+                    <span class="lang-zh">分享者</span>
+                </a>
+            </td>
+            <td class="navigation">
+                <a class="nav-link" title="Workshop Home Page" href="#home">
+                    <span class="lang-en">About</span>
+                    <span class="lang-zh">关于</span>
+                </a>
+            </td>
+            <td class="navigation">
+                <a class="nav-link" title="Join Us" href="#join">
+                    <span class="lang-en">Join Us</span>
+                    <span class="lang-zh">加入我们</span>
+                </a>
+            </td>
+            <td class="navigation" style="width: 80px;">
+                <a title="Toggle Language" href="#" onclick="toggleLanguage(event)">中 / En</a>
+            </td>
+        </tr>
+    </table>
+
+    <div id="loading-indicator">
+        Loading...
+    </div>
+
+    <!-- Dynamic Content Target -->
+    <div id="main-content" class="page-content active">
+        <!-- Content will be injected here via JavaScript fetch API -->
+    </div>
+
+    <footer>
+        <span class="lang-en">&copy; Shiyao Zhang &nbsp;|&nbsp; Template by <a href="https://github.com/mikepierce">Mike
+                Pierce</a></span>
+        <span class="lang-zh">&copy; Shiyao Zhang &nbsp;|&nbsp; 模板来自 <a href="https://github.com/mikepierce">Mike
+                Pierce</a></span>
+    </footer>
+
+</body>
+
+</html>
