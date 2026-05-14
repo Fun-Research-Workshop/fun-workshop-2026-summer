@@ -1,10 +1,12 @@
 - id: shiyao-zhang
   name_en: Shiyao Zhang
   name_zh: 张世尧
-  title_en: PhD student
-  title_zh: 博士生
-  bio_en: Biography coming soon.
-  bio_zh: 简介完善中。
+  title_en: PhD candidate, XJTLU
+  title_zh: 西交利物浦大学博士生
+  bio_en: |
+    PhD candidate at Xi'an Jiaotong-Liverpool University (XJTLU), supervised by Prof. Zhen Song. Research interests include multi-agent systems, AI orchestration, and knowledge graph applications. Developed <a href="https://github.com/BillShiyaoZhang/agent-comm" target="_blank">agent-comm</a>, an end-to-end encrypted P2P communication protocol for OpenClaw agents.
+  bio_zh: |
+    西交利物浦大学博士生，师从宋臻教授。研究方向包括多智能体系统、AI编排与知识图谱应用。开发了 <a href="https://github.com/BillShiyaoZhang/agent-comm" target="_blank">agent-comm</a>，一个面向 OpenClaw 智能体的端到端加密点对点通信协议。
 
 - id: siqi
   name_en: Siqi

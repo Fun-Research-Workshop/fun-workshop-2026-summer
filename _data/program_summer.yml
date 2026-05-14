@@ -1,0 +1,42 @@
+# Fun Workshop Summer Series
+# 夏季系列
+
+- id: wkshp-agent-comm
+  date_en: |
+    June 2026
+    (TBC)
+  date_zh: |
+    2026年6月
+    (待定)
+  title_en: Agent Communication Protocol - Building Secure P2P Messaging Between AI Agents
+  title_zh: 智能体通信协议 - 构建 AI 智能体之间的安全点对点消息传递
+  speakers:
+    - id: shiyao-zhang
+  abstract_en: |
+    A deep dive into the **agent-comm** project - a secure end-to-end encrypted communication protocol for OpenClaw agents running on different machines.
+
+    Topics covered:
+    - **ECIES encryption**: X25519 ECDH + HKDF + AES-256-GCM-SIV with forward secrecy
+    - **One-time token authentication**: Preventing contact information abuse
+    - **Multi-layer inbound security**: Peer whitelist, replay detection, schema validation
+    - **KG-driven routing**: Knowledge graph based message routing and policy enforcement
+    - **Live demo**: Setting up a secure channel between two agents
+
+    This is a hands-on technical workshop perfect for anyone interested in multi-agent systems, AI communication protocols, or building secure distributed AI applications.
+  abstract_zh: |
+    深入了解 **agent-comm** 项目 — 一个面向在不同机器上运行的 OpenClaw 智能体之间的安全端到端加密通信协议。
+
+    涵盖的主题：
+    - **ECIES 加密**：X25519 ECDH + HKDF + AES-256-GCM-SIV，具备前向保密
+    - **一次性令牌认证**：防止联系方式被滥用
+    - **多层入站安全**：Peer 白名单、Replay 检测、Schema 验证
+    - **KG 驱动路由**：基于知识图谱的消息路由和策略执行
+    - **现场演示**：在两个智能体之间建立安全通道
+
+    这是一个实操性很强的技术工作坊，适合对多智能体系统、AI 通信协议或构建安全分布式 AI 应用感兴趣的人。
+  poster_en: 
+  poster_zh: 
+  resources:
+    - name_en: GitHub Repository
+      name_zh: GitHub 仓库
+      url: https://github.com/BillShiyaoZhang/agent-comm
