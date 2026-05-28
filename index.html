@@ -98,7 +98,7 @@
             let targetId = hash.split('?id=')[1];
 
             // Fallback for invalid hashes
-            if (!['#program', '#directions', '#flyer', '#join'].includes(baseHash)) {
+            if (!['#program', '#directions', '#flyer', '#join', '#faq'].includes(baseHash)) {
                 baseHash = '#program';
                 hash = '#program';
             }
@@ -215,6 +215,12 @@
                     <span class="lang-zh">海报</span>
                 </a>
             </td> -->
+             <td class="navigation">
+                <a class="nav-link" title="FAQ" href="#faq">
+                    <span class="lang-en">FAQ</span>
+                    <span class="lang-zh">常见问题</span>
+                </a>
+            </td>
              <td class="navigation">
                 <a class="nav-link" title="Join Us" href="#join">
                     <span class="lang-en">Join Us</span>
