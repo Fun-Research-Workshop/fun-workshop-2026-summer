@@ -1,0 +1,303 @@
+<style>
+    /* Syllabus Page Specific Styles */
+    .syllabus-section {
+        margin-bottom: 40px;
+    }
+    
+    .syllabus-title {
+        border-bottom: 2px solid #52739e;
+        padding-bottom: 8px;
+        margin-top: 30px;
+        font-family: 'Roboto Slab', serif;
+    }
+    
+    .syllabus-title.planned {
+        border-bottom: 2px solid #813c54;
+    }
+
+    /* Timeline and Cards */
+    .syllabus-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin: 24px 0;
+    }
+
+    .syllabus-card {
+        background: #ffffff;
+        border-left: 5px solid #52739e;
+        border-radius: 6px;
+        padding: 20px 24px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .syllabus-card.planned {
+        border-left-color: #813c54;
+    }
+
+    .syllabus-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 20px rgba(82, 115, 158, 0.12);
+        border-left-width: 8px;
+    }
+
+    .syllabus-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(circle, rgba(82, 115, 158, 0.03) 0%, transparent 70%);
+        border-radius: 50%;
+        transform: translate(30px, -30px);
+    }
+    
+    .syllabus-card.planned::before {
+        background: radial-gradient(circle, rgba(129, 60, 84, 0.03) 0%, transparent 70%);
+    }
+
+    .syllabus-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 12px;
+    }
+
+    .syllabus-meta {
+        font-family: 'Roboto Slab', serif;
+        font-weight: bold;
+        color: #52739e;
+        font-size: 1.1em;
+    }
+    
+    .syllabus-card.planned .syllabus-meta {
+        color: #813c54;
+    }
+
+    .syllabus-time {
+        background-color: rgba(82, 115, 158, 0.1);
+        color: #52739e;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.85em;
+        font-weight: bold;
+        font-family: 'Roboto', sans-serif;
+    }
+    
+    .syllabus-card.planned .syllabus-time {
+        background-color: rgba(129, 60, 84, 0.1);
+        color: #813c54;
+    }
+
+    .syllabus-topic {
+        font-size: 1.3em;
+        font-weight: bold;
+        color: #505050;
+        margin-bottom: 8px;
+        font-family: 'Roboto Slab', serif;
+    }
+
+    .syllabus-description {
+        color: #666666;
+        line-height: 1.6;
+        font-size: 0.95em;
+    }
+    
+    .syllabus-badge {
+        display: inline-block;
+        font-size: 0.75em;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-weight: bold;
+        margin-right: 8px;
+        background: #f0f0f0;
+        color: #666;
+    }
+    
+    .syllabus-badge.setup {
+        background: rgba(184, 134, 11, 0.1);
+        color: #b8860b;
+    }
+    
+    .syllabus-badge.hitl {
+        background: rgba(82, 115, 158, 0.1);
+        color: #52739e;
+    }
+
+    /* Dark Mode support */
+    @media (prefers-color-scheme: dark) {
+        .syllabus-card {
+            background: #1e1e1e;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        .syllabus-card:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background: #252525;
+        }
+        .syllabus-topic {
+            color: #e0e0e0;
+        }
+        .syllabus-description {
+            color: #b0b0b0;
+        }
+        .syllabus-time {
+            background-color: rgba(82, 115, 158, 0.2);
+            color: #a0c0e0;
+        }
+        .syllabus-card.planned .syllabus-time {
+            background-color: rgba(129, 60, 84, 0.2);
+            color: #e0a0b8;
+        }
+    }
+</style>
+
+<h2 class="lang-en">Workshop Syllabus</h2>
+<h2 class="lang-zh">课程安排</h2>
+
+<div class="lang-en">
+    <p>
+        The following schedule outlines the planned sequence of sessions for the OpenClaw and ClawTwin Summer Workshop. It is split into confirmed dates and upcoming proposed topics.
+    </p>
+</div>
+
+<div class="lang-zh">
+    <p>
+        以下是 OpenClaw 与 ClawTwin 夏季工坊的课程时间与大纲规划。包含已确定的课程安排以及后续计划中的探讨话题。
+    </p>
+</div>
+
+<!-- Section 1: Confirmed Schedule -->
+<div class="syllabus-section">
+    <h3 class="lang-en syllabus-title">📅 Confirmed Schedule</h3>
+    <h3 class="lang-zh syllabus-title">📅 已确定课程安排</h3>
+
+    <div class="syllabus-list">
+        <!-- Session 1 -->
+        <div class="syllabus-card">
+            <div class="syllabus-header">
+                <span class="syllabus-meta">
+                    <span class="lang-en">Session 1</span>
+                    <span class="lang-zh">第 1 课</span>
+                </span>
+                <span class="syllabus-time">
+                    <span class="lang-en">June 15, 2026 (14:00 - 15:00)</span>
+                    <span class="lang-zh">2026年6月15日 (14:00 - 15:00)</span>
+                </span>
+            </div>
+            <div class="syllabus-topic">
+                <span class="lang-en">OpenClaw Basic Setup & Environment Initialization</span>
+                <span class="lang-zh">OpenClaw 基础搭建与本地环境配置</span>
+            </div>
+            <div class="syllabus-description">
+                <div class="lang-en">
+                    <span class="syllabus-badge setup">Setup</span>
+                    Step-by-step guidance on setting up the local environment, resolving dependency packages, cloning the OpenClaw repository, and starting your first local agent node.
+                </div>
+                <div class="lang-zh">
+                    <span class="syllabus-badge setup">配置</span>
+                    一步步带大家完成本地 Python 与依赖环境配置，拉取 OpenClaw 代码仓库，并成功运行起第一个本地智能体节点。
+                </div>
+            </div>
+        </div>
+
+        <!-- Session 2 -->
+        <div class="syllabus-card">
+            <div class="syllabus-header">
+                <span class="syllabus-meta">
+                    <span class="lang-en">Session 2</span>
+                    <span class="lang-zh">第 2 课</span>
+                </span>
+                <span class="syllabus-time">
+                    <span class="lang-en">June 22, 2026 (14:00 - 15:00)</span>
+                    <span class="lang-zh">2026年6月22日 (14:00 - 15:00)</span>
+                </span>
+            </div>
+            <div class="syllabus-topic">
+                <span class="lang-en">LLM API Connection & Agent Persona Tuning</span>
+                <span class="lang-zh">大模型 API 接入与智能体性格调优</span>
+            </div>
+            <div class="syllabus-description">
+                <div class="lang-en">
+                    <span class="syllabus-badge setup">Development</span>
+                    Explaining how to hook up various Large Language Models (like DeepSeek, Kimi, Doubao, OpenAI) via API keys and customize the agent's behavior and tone of voice using system prompt design.
+                </div>
+                <div class="lang-zh">
+                    <span class="syllabus-badge setup">开发</span>
+                    讲解如何通过 API Key 为智能体接入不同的语言模型（如 DeepSeek, Kimi, 豆包等），并通过系统 Prompt 的设计来定制智能体的对话风格、语气和习惯。
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Section 2: Planned Topics -->
+<div class="syllabus-section">
+    <h3 class="lang-en syllabus-title planned">💡 Planned Topics</h3>
+    <h3 class="lang-zh syllabus-title planned">💡 计划中的课程话题</h3>
+
+    <div class="syllabus-list">
+        <!-- Topic 1 -->
+        <div class="syllabus-card planned">
+            <div class="syllabus-header">
+                <span class="syllabus-meta">
+                    <span class="lang-en">Topic A</span>
+                    <span class="lang-zh">话题 A</span>
+                </span>
+                <span class="syllabus-time">
+                    <span class="lang-en">Late June (TBC)</span>
+                    <span class="lang-zh">6月下旬 (待定)</span>
+                </span>
+            </div>
+            <div class="syllabus-topic">
+                <span class="lang-en">End-to-End Encrypted P2P Communication between Agents</span>
+                <span class="lang-zh">智能体之间的端到端加密点对点通信</span>
+            </div>
+            <div class="syllabus-description">
+                <div class="lang-en">
+                    <span class="syllabus-badge hitl">Security</span>
+                    An overview of the agent-comm SDK, introducing secure key exchanges (X25519 ECDH), Double Ratchet protocol for forward secrecy, and routing mechanisms through the agent-comm-platform.
+                </div>
+                <div class="lang-zh">
+                    <span class="syllabus-badge hitl">安全</span>
+                    剖析 agent-comm SDK 的核心原理，介绍如何利用双棘轮协议建立加密安全通道，以及如何通过中继节点实现 NAT 穿透和点对点消息传递。
+                </div>
+            </div>
+        </div>
+
+        <!-- Topic 2 -->
+        <div class="syllabus-card planned">
+            <div class="syllabus-header">
+                <span class="syllabus-meta">
+                    <span class="lang-en">Topic B</span>
+                    <span class="lang-zh">话题 B</span>
+                </span>
+                <span class="syllabus-time">
+                    <span class="lang-en">Early July (TBC)</span>
+                    <span class="lang-zh">7月上旬 (待定)</span>
+                </span>
+            </div>
+            <div class="syllabus-topic">
+                <span class="lang-en">Human-in-the-Loop (HITL) Workflow & Approval System</span>
+                <span class="lang-zh">人类介入（HITL）工作流与安全审批机制</span>
+            </div>
+            <div class="syllabus-description">
+                <div class="lang-en">
+                    <span class="syllabus-badge hitl">HITL</span>
+                    Deploying the agent-collaboration-web dashboard. How to set up an approval queue to review sensitive actions proposed by agents (e.g., sending calendars, transferring tokens, triggering actions) before they execute.
+                </div>
+                <div class="lang-zh">
+                    <span class="syllabus-badge hitl">人类介入</span>
+                    结合 Web 端的集成部署，演示如何实现“人类介入（HITL）”队列。让智能体在执行敏感动作（如行程透露、代币转移、指令下发）前必须在网页端取得用户的授权。
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

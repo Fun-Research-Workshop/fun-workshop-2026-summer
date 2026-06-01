@@ -29,11 +29,30 @@
         We have launched the <strong>ClawTwin 探索计划</strong>, planning to develop a prototype over the coming months. We hope to build an open, fun community where people can make friends, share resources, and turn wild ideas into reality.
     </p>
     <p>
-        <strong>🔑 Early Exploration Cases — Agent Comm Ecosystem:</strong> Two concrete examples from our community are listed below. Together, they show both the secure communication protocol and the supporting infrastructure that ClawTwin envisions.
+        <strong>🔑 Early Exploration Cases — Agent Collaboration Ecosystem:</strong>
+        We have developed a comprehensive suite of tools to enable secure, human-in-the-loop multi-agent collaboration across networks. The ecosystem consists of the following project and its submodules:
     </p>
     <ul style="list-style-type: disc; margin-left: 20px; margin-top: 0;">
-        <li><a href="https://github.com/BillShiyaoZhang/agent-comm" target="_blank" rel="noopener noreferrer">agent-comm</a> — a secure end-to-end encrypted P2P communication protocol for AI agents. It demonstrates how two OpenClaw agents running on different machines can establish trusted, encrypted communication using ECIES (X25519 ECDH + HKDF + AES-256-GCM-SIV) and a knowledge-graph-driven routing policy.</li>
-        <li><a href="https://github.com/BillShiyaoZhang/agent-comm-platform" target="_blank" rel="noopener noreferrer">agent-comm-platform</a> — the backend infrastructure for the agent-comm ecosystem, providing identity discovery, NAT traversal, and offline message storage so AI agents can communicate reliably across different network environments.</li>
+        <li>
+            <a href="https://github.com/BillShiyaoZhang/agent-collaboration-deploy" target="_blank" rel="noopener noreferrer"><strong>agent-collaboration-deploy</strong></a> 
+            — The parent repository containing a unified Docker Compose and Nginx configuration to orchestrate and deploy the entire multi-agent collaboration system in one click.
+            <ul style="list-style-type: circle; margin-left: 20px; margin-top: 5px;">
+                <li style="margin-bottom: 5px;">
+                    <a href="https://github.com/BillShiyaoZhang/agent-collaboration-web" target="_blank" rel="noopener noreferrer"><strong>agent-collaboration-web</strong></a> (Submodule)
+                    — A responsive Next.js web application for Human-in-the-Loop (HITL) management. It allows users to register agents, view real-time chat histories, search for peer agents on the network, call remote agent services, and review/approve sensitive actions requiring human authorization.
+                </li>
+                <li style="margin-bottom: 5px;">
+                    <a href="https://github.com/BillShiyaoZhang/agent-comm-platform" target="_blank" rel="noopener noreferrer"><strong>agent-comm-platform</strong></a> (Submodule)
+                    — The Go-based backend infrastructure. It serves as the network's address book (Registry), dynamic message broker (MQ/Mailbox for offline buffering), and NAT traversal assistant (libp2p Circuit Relay v2), ensuring reliable communication even behind firewalls.
+                    <ul style="list-style-type: square; margin-left: 20px; margin-top: 5px;">
+                        <li>
+                            <a href="https://github.com/BillShiyaoZhang/agent-comm" target="_blank" rel="noopener noreferrer"><strong>agent-comm</strong></a> (Nested Submodule)
+                            — The core SDK and P2P communication library in Go. It enables agents to maintain local cryptographic identities (Ed25519/URN), establish direct end-to-end encrypted tunnels (using X25519 and a Double Ratchet crypto protocol for forward secrecy), and fall back to P2P relaying when necessary.
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
     </ul>
     <p>
         Whether you're a developer, designer, academic, or just a curious student, there's a place for you here:
@@ -59,11 +78,30 @@
         我们发起了 <strong>ClawTwin 探索计划</strong>，计划在未来几个月内开发一个原型，亲自探索这个充满未知的领域。我们希望将这里打造成一个开放、好玩的社区，让大家交到朋友、共享资源，一起把疯狂的想法变成现实。
     </p>
     <p>
-        <strong>🔑 前期探索案例 — Agent Comm 生态：</strong> 我们社区有两个具体案例，下面这两个项目一起展示了 ClawTwin 设想中的“安全通信协议 + 配套基础设施”能力。
+        <strong>🔑 前期探索案例 — 智能体协同生态：</strong>
+        我们社区开发了一套完整的端到端安全且支持人类介入（Human-in-the-Loop, HITL）的多智能体协同生态。该生态由以下主项目及其子模块（Submodules）构成：
     </p>
     <ul style="list-style-type: disc; margin-left: 20px; margin-top: 0;">
-        <li><a href="https://github.com/BillShiyaoZhang/agent-comm" target="_blank" rel="noopener noreferrer">agent-comm</a> —— 一个面向 AI 智能体的安全端到端加密点对点通信协议。它展示了两个运行在不同机器上的 OpenClaw 智能体如何通过 ECIES（X25519 ECDH + HKDF + AES-256-GCM-SIV）和知识图谱驱动的路由策略建立可信加密通信。</li>
-        <li><a href="https://github.com/BillShiyaoZhang/agent-comm-platform" target="_blank" rel="noopener noreferrer">agent-comm-platform</a> —— agent-comm 生态的后端基础设施，提供身份发现、NAT 穿透和离线消息存储能力，让 AI 智能体能够跨不同网络环境稳定通信。</li>
+        <li>
+            <a href="https://github.com/BillShiyaoZhang/agent-collaboration-deploy" target="_blank" rel="noopener noreferrer"><strong>agent-collaboration-deploy</strong></a> 
+            —— 统一的部署中心，通过 Docker Compose 和 Nginx 反向代理配置，一键编排并部署整个多智能体协同系统。
+            <ul style="list-style-type: circle; margin-left: 20px; margin-top: 5px;">
+                <li style="margin-bottom: 5px;">
+                    <a href="https://github.com/BillShiyaoZhang/agent-collaboration-web" target="_blank" rel="noopener noreferrer"><strong>agent-collaboration-web</strong></a> (子模块)
+                    —— 基于 Next.js 14 开发的响应式 Web 平台。支持人类介入管理，包括智能体注册、网络节点发现、多智能体聊天消息流、敏感操作的“人类审核与批准”（HITL Queue）以及服务调用与代币划转。
+                </li>
+                <li style="margin-bottom: 5px;">
+                    <a href="https://github.com/BillShiyaoZhang/agent-comm-platform" target="_blank" rel="noopener noreferrer"><strong>agent-comm-platform</strong></a> (子模块)
+                    —— 基于 Go 语言的云端后端基础设施。作为整个通信生态的“灯塔与邮局”，提供智能体身份发现（Registry 目录服务）、离线消息缓冲存储（MQ 邮箱）以及 NAT/防火墙穿透支持（libp2p Circuit Relay v2 隧道），确保无公网 IP 节点稳定互联。
+                    <ul style="list-style-type: square; margin-left: 20px; margin-top: 5px;">
+                        <li>
+                            <a href="https://github.com/BillShiyaoZhang/agent-comm" target="_blank" rel="noopener noreferrer"><strong>agent-comm</strong></a> (嵌套子模块)
+                            —— 核心 Go 语言 SDK 及 P2P 通信协议库。定义了智能体的本地密码学身份生成（Ed25519 & URN 统一资源名）与端到端加密通道建立，使用 Double Ratchet 双棘轮协议保障前向安全性与隐私，并提供原生的 libp2p P2P 直连与网络中转能力。
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
     </ul>
     <p>
         无论你是开发者、设计师、学者，还是单纯好奇的同学，这里都有属于你的位置：
