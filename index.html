@@ -93,14 +93,14 @@
         }
 
         function handleHashChange() {
-            let hash = window.location.hash || '#program';
+            let hash = window.location.hash || '#letter';
             let baseHash = hash.split('?')[0];
             let targetId = hash.split('?id=')[1];
 
             // Fallback for invalid hashes
-            if (!['#program', '#directions', '#flyer', '#join', '#faq', '#syllabus'].includes(baseHash)) {
-                baseHash = '#program';
-                hash = '#program';
+            if (!['#program', '#directions', '#flyer', '#join', '#faq', '#syllabus', '#letter'].includes(baseHash)) {
+                baseHash = '#letter';
+                hash = '#letter';
             }
             const pageId = baseHash.substring(1);
 
@@ -196,9 +196,14 @@
 
     <table class="navigation">
         <tr>
-            
             <td class="navigation">
-                <a class="nav-link current" title="Workshop Program" href="#program">
+                <a class="nav-link current" title="Coordinator Letter" href="#letter">
+                    <span class="lang-en">Letter</span>
+                    <span class="lang-zh">写在前面</span>
+                </a>
+            </td>
+            <td class="navigation">
+                <a class="nav-link" title="Workshop Program" href="#program">
                     <span class="lang-en">Program</span>
                     <span class="lang-zh">日程</span>
                 </a>
