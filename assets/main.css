@@ -33,9 +33,17 @@ body{
     font-family:'Roboto',sans-serif;
     font-size:1em;
     line-height:1.5em;
-    margin: 60px auto;
+    margin: 40px auto;
     width: 100%;
     max-width: 1000px;
+}
+
+#main-content {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 a{color: #b8860b; text-decoration:none;}
@@ -49,15 +57,17 @@ a:active{color: #e82945;}
     padding-left: 0;
 }
 
-h1,h2,h3,h4{clear:left; color: #813c54; margin:1.5em 0em 1em 0em; font-family:'Roboto Slab',serif; text-shadow: 1px 1px 2px #d0d0d0;}
-h1{font-size:2.67em;}
-h2{font-size:2.00em; margin-left: 0px;}
-h3{font-size:1.67em; margin-left: 24px;}
-h4{font-size:1.33em; margin-left: 48px;}
-p{list-style:none; margin:24px auto 24px auto; padding:0px; width:100%; max-width:900px; text-align:left;}
+h1,h2,h3,h4{clear:left; color: #813c54; margin:1.5em 0em 0.8em 0em; font-family:'Roboto Slab',serif; text-shadow: 1px 1px 2px #d0d0d0;}
+h1{font-size:2.2em;}
+h2{font-size:1.8em; margin-left: 0px;}
+h3{font-size:1.4em; margin-left: 0px;}
+h4{font-size:1.2em; margin-left: 0px;}
+p{list-style:none; margin:16px 0; padding:0px; width:100%; text-align:left;}
 li a, p a {text-decoration:underline; text-decoration-color:#b8860b;}
-ul{list-style:none; margin:24px auto 24px auto; padding:0px; width:100%; max-width:800px; text-align:left;}
-ul li{list-style:none; margin:0px auto 0px auto; padding:0px; text-align:left;}
+ul{list-style:disc; margin:16px 0 16px 24px; padding:0px; width:auto; text-align:left;}
+ul li{list-style:inherit; margin:0px 0px 8px 0px; padding:0px; text-align:left;}
+ol{list-style:decimal; margin:16px 0 16px 24px; padding:0px; width:auto; text-align:left;}
+ol li{list-style:inherit; margin:0px 0px 8px 0px; padding:0px; text-align:left;}
 i,em{font-style:italic;}
 b,strong{font-weight:bold;}
 sup{
@@ -72,16 +82,12 @@ sub{
 }
 table{
     width: 100%;
-    max-width: 1000px;
-    margin: 12px auto 24px auto;
-    float: center;
-    /* UNCOMMENT THIS FOR DEBUGGING THE ALIGNMENT */
-    /*border: 1px solid black;*/
+    max-width: 100%;
+    margin: 16px 0;
+    border-collapse: collapse;
 }
 th,td{
     text-align: left;
-    /* UNCOMMENT THIS FOR DEBUGGING THE ALIGNMENT */
-    /*border: 1px solid black;*/
 }
 
 /* Website Banner */
@@ -95,8 +101,60 @@ th,td{
 .year{color: #505050; font-size:0.67em; font-weight: lighter;}
 
 /* Navigation Links (Home, Registration, etc) */
-table.navigation{width:800px;}
+table.navigation{
+    width: 100%;
+    max-width: 850px;
+    margin: 24px auto;
+}
 td.navigation{font-size:1.67em; white-space:nowrap; width:auto; text-align:center; vertical-align:middle; padding:0px 12px 0px 12px;}
+
+/* Responsive Layout for Mobile Devices */
+@media only screen and (max-width: 600px) {
+    .banner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #fafafa;
+        padding: 20px 0;
+    }
+    .banner img {
+        display: none !important;
+    }
+    .top-left {
+        font-size: 2.2em !important;
+        position: static !important;
+        height: auto !important;
+        padding: 10px 0 !important;
+    }
+    .bottom-right {
+        font-size: 1.2em !important;
+        position: static !important;
+        color: #505050 !important;
+        text-align: center !important;
+        padding: 5px 0 !important;
+        text-shadow: none !important;
+    }
+    table.navigation {
+        display: block;
+        width: 100% !important;
+        margin: 15px auto !important;
+    }
+    table.navigation tr {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+    td.navigation {
+        display: block;
+        font-size: 1.1em !important;
+        padding: 4px 8px !important;
+    }
+    .letter-container {
+        padding: 20px !important;
+        margin: 15px auto !important;
+    }
+}
 
 /* Co-organizer Images */
 .co-organizers-container {
@@ -153,15 +211,7 @@ td.flyer p{width:auto; margin:0 auto; text-align:center;}
 
 footer{font-size:0.875em; margin-top:12em; text-align:center;}
 
-/* My hacky way of making the site mobile-friendly */
-@media only screen and (max-width: 1100px) {
-    h2{font-size:3.00em;}
-    p{font-size:1.5em; line-height:1.5em;}
-    th,td,tr{font-size:1.5em; line-height:1.5em;}
-    td.date{font-size:1em; padding-top:0.5em;}
-    td.navigation{font-size:1.5em; padding:0px 20px 0px 20px;}
-    table.footer{font-size:0.33em;}
-}
+/* Obsolete media query removed for clean responsive font sizing */
 
 /* FAQ Accordion Styling */
 .faq-container {
