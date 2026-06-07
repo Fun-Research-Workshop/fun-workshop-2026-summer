@@ -10,9 +10,12 @@
     <meta name="distribution" content="global">
     <meta name="KeyWords" content="Workshop">
     <title>Fun Workshop</title>
+    <!-- MathJax for rendering math equations -->
     <script type="text/javascript" async
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=default">
-        </script>
+    </script>
+    <!-- Marked.js for rendering markdown files -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         html:not([lang="zh"]) .lang-zh {
             display: none !important;
@@ -42,18 +45,22 @@
                 html.setAttribute('lang', 'zh');
                 localStorage.setItem('lang', 'zh');
             }
+            // Dynamic routing switch on lang change
+            handleHashChange();
         }
 
-        // Cache for loaded pages
+        // Cache for loaded pages (segmented by pageId and lang)
         const pageCache = {};
 
         async function loadPageContent(pageId) {
             const contentContainer = document.getElementById('main-content');
             const loadingIndicator = document.getElementById('loading-indicator');
+            const lang = document.documentElement.getAttribute('lang') || 'zh';
+            const cacheKey = `${pageId}_${lang}`;
 
-            // If we already loaded this page, just use the cache
-            if (pageCache[pageId]) {
-                contentContainer.innerHTML = pageCache[pageId];
+            // If we already loaded this page in this language, just use the cache
+            if (pageCache[cacheKey]) {
+                contentContainer.innerHTML = pageCache[cacheKey];
                 return;
             }
 
@@ -62,17 +69,19 @@
             loadingIndicator.style.display = 'block';
 
             try {
-                // Fetch the component HTML file
-                const response = await fetch(`components/${pageId}.html`);
+                // Fetch the component Markdown file
+                const response = await fetch(`components/${pageId}_${lang}.md`);
 
                 if (!response.ok) {
                     throw new Error(`Page not found: ${response.status}`);
                 }
 
-                const html = await response.text();
+                const markdownText = await response.text();
+                // Parse markdown into HTML using marked
+                const html = marked.parse(markdownText);
 
                 // Cache it and display it
-                pageCache[pageId] = html;
+                pageCache[cacheKey] = html;
                 contentContainer.innerHTML = html;
             } catch (error) {
                 console.error("Error loading page:", error);
@@ -97,8 +106,8 @@
             let baseHash = hash.split('?')[0];
             let targetId = hash.split('?id=')[1];
 
-            // Fallback for invalid hashes
-            if (!['#program', '#directions', '#flyer', '#join', '#faq', '#syllabus', '#letter'].includes(baseHash)) {
+            // Fallback for invalid hashes (removed directions and flyer)
+            if (!['#program', '#join', '#faq', '#syllabus', '#letter'].includes(baseHash)) {
                 baseHash = '#letter';
                 hash = '#letter';
             }
@@ -141,9 +150,12 @@
             const suggestions = document.getElementById('volunteer-suggestion') ? document.getElementById('volunteer-suggestion').value.trim() : '';
 
             const roles = [];
+            // Updated selectors to match checkbox IDs in the form
             if (document.getElementById('role-web') && document.getElementById('role-web').checked) roles.push(document.getElementById('role-web').value);
-            if (document.getElementById('role-exec') && document.getElementById('role-exec').checked) roles.push(document.getElementById('role-exec').value);
-            if (document.getElementById('role-plan') && document.getElementById('role-plan').checked) roles.push(document.getElementById('role-plan').value);
+            if (document.getElementById('role-design') && document.getElementById('role-design').checked) roles.push(document.getElementById('role-design').value);
+            if (document.getElementById('role-ethics') && document.getElementById('role-ethics').checked) roles.push(document.getElementById('role-ethics').value);
+            if (document.getElementById('role-claw') && document.getElementById('role-claw').checked) roles.push(document.getElementById('role-claw').value);
+            if (document.getElementById('role-attend') && document.getElementById('role-attend').checked) roles.push(document.getElementById('role-attend').value);
 
             if (!name && roles.length === 0 && !suggestions) {
                 const lang = document.documentElement.getAttribute('lang');

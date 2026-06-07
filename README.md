@@ -1,76 +1,45 @@
-[![Screenshot of the Website](https://raw.githubusercontent.com/mikepierce/conference-website-template/master/screenshot.png)](https://mikepierce.github.io/conference-website-template/)
+# Fun Workshop 2026 Summer & ClawTwin Initiative Website
 
-An HTML/CSS website template perfect for a small academic or technology conference or seminar.
-The template is quick to deploy and straightforward to customize.
-You can [explore it live here](https://mikepierce.github.io/conference-website-template/),
-and see some folks' use of the template
-[here](https://math.ucr.edu/~mathconn/) 
-and [here](https://data-science-conference.github.io) 
-and [here](https://aquaticdatasciopensci.github.io) 
-and [here](https://comp-expe.github.io) 
-and [here](https://enba-phd-call.github.io)
-and [here](https://strl2022.github.io).
-I'd be happy to see the site you create from my template ☺
+Welcome! This repository hosts the source code for the **Fun Workshop 2026 Summer** and **ClawTwin Initiative** website, a single-page application (SPA) designed to be highly readable and accessible for both human users and AI agents.
 
-## Installation
+## Repository Overview
 
-If you have access to a server for web hosting, 
-perhaps through your company/university or department, 
-then using this template is as easy as cloning this repository 
-directly into your public HTML directory.
-If not you can pretty easily host a website using this template with [GitHub Pages](https://pages.github.com/).
-See that link for more details, but the basic procedure is this:
+To keep the codebase easy to maintain and prevent duplication, all core content is stored exactly once per language inside clean Markdown files under the `components/` directory. The main website dynamically fetches, parses, and renders these Markdown files client-side using [marked.js](https://marked.js.org/).
 
- 1. Create a GitHub repository named `username.github.io`, 
- where *username* is your username on GitHub.
+## Agent Guidance (llms.txt)
 
- 2. Click the *Use this template* button above, 
- being sure to give your copy of this repository a more apt name,
- like *awesome-conference*.
+If you are an AI agent reading this repository to answer questions about the workshop, you can find the single source of truth for all content mapped below.
 
- 3. In your copy go to *Settings* and scroll down to *GitHub Pages*.
- Under *Source* choose the master branch of your forked copy.
- Then your copy of the website will be hosted at `username.github.io/awesome-conference`.
+### Content Directory Map
 
-## Editing the Template
+| Section | English Source | Chinese Source | Description |
+| :--- | :--- | :--- | :--- |
+| **Letter** | [`components/letter_en.md`](components/letter_en.md) | [`components/letter_zh.md`](components/letter_zh.md) | Introduction, background, and rationale for the ClawTwin Initiative and Summer Workshop. |
+| **Program** | [`components/program_en.md`](components/program_en.md) | [`components/program_zh.md`](components/program_zh.md) | Activities, logistics (time, location, tickets), risk warnings, and list of co-organizers. |
+| **Syllabus** | [`components/syllabus_en.md`](components/syllabus_en.md) | [`components/syllabus_zh.md`](components/syllabus_zh.md) | Zero-to-One workshop lesson path, schedule of sessions, topics, and prerequisites. |
+| **Detailed Syllabus** | [`syllabus-detailed.md`](syllabus-detailed.md) | - | Exhaustive per-session plan with course rhythm, topics, hands-on tasks, and acceptance criteria. |
+| **FAQ** | [`components/faq_en.md`](components/faq_en.md) | [`components/faq_zh.md`](components/faq_zh.md) | Frequently asked questions about agents, LLMs, privacy security, and prerequisites. |
+| **Join Us** | [`components/join_en.md`](components/join_en.md) | [`components/join_zh.md`](components/join_zh.md) | Role descriptions and signup application form details. |
 
-If you have not edited HTML/CSS to design a webpage before, 
-I encourage you to read 
-[How to Build a Personal Webpage from Scratch](https://rutar.org/writing/how-to-build-a-personal-webpage-from-scratch/)
-by Alex Rutar, particularly the 
-[Crash course in HTML and CSS](https://rutar.org/writing/how-to-build-a-personal-webpage-from-scratch/#crash-course-in-html-and-css) 
-section.
+---
 
-## Beautiful Math with MathJax (optional)
+## Technical Architecture & Development
 
-It may be helpful to include mathematical notation on this website, especially in the abstracts of talks. 
-This can be done using [MathJax](https://github.com/mathjax/MathJax).
-For an example see the [*programs* page](https://mikepierce.github.io/conference-website-template/program/) of the template site.
-To include math in a page of this website, include the lines
+The website is a lightweight Single-Page Application (SPA):
+1. **Core**: `index.html` implements client-side hash routing (`#letter`, `#program`, `#syllabus`, `#faq`, `#join`) and loads the appropriate language Markdown file.
+2. **Markdown Parser**: Uses `marked.js` loaded via CDN to translate Markdown into HTML at runtime.
+3. **Styling**: `assets/main.css` contains the design tokens, fonts, and specific layouts for all components (letters, syllabus cards, FAQ accordions, and join forms) including full light/dark mode support.
 
-````HTML
-<script type="text/javascript" async 
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=default"> 
-</script>
-````
+### Running Locally
 
-in the `<head>` of the HTML file. Then math can by typeset by using LaTeX's math notation enclosed in `\(...\)` delimiters.
+You can run the website locally by starting any static file server from the root directory:
 
-## Sitemap (optional)
+```bash
+# Using Python
+python3 -m http.server 8000
 
-The file `sitemap.xml` helps search engines understand the structure of your site.
-In this file, each instance of "WEBSITE" should be replaced
-with the actual address where this website is being hosted.
-See the [sitemaps protocol page](https://www.sitemaps.org/protocol.html) for more details.
+# Using Node (npm)
+npx http-server -p 8000
+```
 
-## Alternatives
-
-The simplicity of the HTML/CSS source for this template is its strongest feature.
-For something more slick or modern or sophisticated or complicated:
-
- - [Hoverboard](https://github.com/gdg-x/hoverboard) is beautiful but requires some tech know-how to setup. 
-
- - You can build something from scratch based on a 
- [GitHub Pages site with Jekyll](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll) 
- or a template from [Pixelarity](https://pixelarity.com).
-
+Then open `http://localhost:8000` in your browser.

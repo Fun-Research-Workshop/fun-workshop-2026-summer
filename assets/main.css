@@ -275,4 +275,403 @@ footer{font-size:0.875em; margin-top:12em; text-align:center;}
     }
 }
 
+/* ==========================================================================
+   Letter Page Styling
+   ========================================================================== */
+.letter-container {
+    max-width: 850px;
+    margin: 30px auto;
+    padding: 40px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eaeaea;
+    position: relative;
+}
 
+.letter-title {
+    font-family: 'Roboto Slab', serif;
+    color: #813c54;
+    font-size: 2.2em;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #52739e;
+    padding-bottom: 12px;
+}
+
+.letter-body {
+    font-size: 1.05em;
+    line-height: 1.8em;
+    color: #4a4a4a;
+}
+
+.letter-body p {
+    margin-bottom: 20px;
+    text-indent: 0;
+}
+
+.letter-section-title {
+    color: #52739e;
+    margin-top: 35px;
+    margin-bottom: 15px;
+    font-family: 'Roboto Slab', serif;
+    font-size: 1.4em;
+    border-left: 4px solid #813c54;
+    padding-left: 12px;
+}
+
+.letter-projects {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.letter-project-item {
+    margin-bottom: 15px;
+    list-style-type: none;
+    position: relative;
+}
+
+.letter-project-item::before {
+    content: "⚡";
+    position: absolute;
+    left: -20px;
+    color: #b8860b;
+}
+
+.letter-syllabus-list {
+    margin: 20px 0;
+    padding-left: 0;
+    list-style: none;
+}
+
+.letter-syllabus-level {
+    font-weight: bold;
+    color: #813c54;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+.letter-syllabus-item {
+    padding: 8px 12px;
+    background: #fdfdfd;
+    border: 1px solid #f0f0f0;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    transition: all 0.2s ease;
+}
+
+.letter-syllabus-item:hover {
+    background: #f7f9fc;
+    border-color: #52739e;
+    transform: translateX(4px);
+}
+
+.letter-meta-table {
+    width: 100%;
+    margin: 25px 0;
+    border-collapse: collapse;
+}
+
+.letter-meta-table td {
+    padding: 10px 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.letter-meta-label {
+    font-weight: bold;
+    color: #52739e;
+    width: 150px;
+}
+
+.letter-footer {
+    margin-top: 40px;
+    text-align: right;
+    font-style: italic;
+    color: #666;
+    border-top: 1px dashed #ddd;
+    padding-top: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .letter-container {
+        background: #1e1e1e;
+        border-color: #333333;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    .letter-title {
+        color: #d1a5b8;
+        border-bottom-color: #52739e;
+    }
+    .letter-body {
+        color: #d0d0d0;
+    }
+    .letter-section-title {
+        color: #a0c0e0;
+        border-left-color: #d1a5b8;
+    }
+    .letter-syllabus-item {
+        background: #252525;
+        border-color: #333;
+    }
+    .letter-syllabus-item:hover {
+        background: #2b303b;
+        border-color: #52739e;
+    }
+    .letter-meta-table td {
+        border-bottom-color: #333;
+    }
+    .letter-footer {
+        border-top-color: #444;
+        color: #aaa;
+    }
+}
+
+/* ==========================================================================
+   Syllabus Page Styling
+   ========================================================================== */
+.syllabus-section {
+    margin-bottom: 40px;
+}
+
+.syllabus-title {
+    border-bottom: 2px solid #52739e;
+    padding-bottom: 8px;
+    margin-top: 30px;
+    font-family: 'Roboto Slab', serif;
+}
+
+.syllabus-title.planned {
+    border-bottom: 2px solid #813c54;
+}
+
+.syllabus-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 24px 0;
+}
+
+.syllabus-card {
+    background: #ffffff;
+    border-left: 5px solid #52739e;
+    border-radius: 6px;
+    padding: 20px 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.syllabus-card.planned {
+    border-left-color: #813c54;
+}
+
+.syllabus-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(82, 115, 158, 0.12);
+    border-left-width: 8px;
+}
+
+.syllabus-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(82, 115, 158, 0.03) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(30px, -30px);
+}
+
+.syllabus-card.planned::before {
+    background: radial-gradient(circle, rgba(129, 60, 84, 0.03) 0%, transparent 70%);
+}
+
+.syllabus-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.syllabus-meta {
+    font-family: 'Roboto Slab', serif;
+    font-weight: bold;
+    color: #52739e;
+    font-size: 1.1em;
+}
+
+.syllabus-card.planned .syllabus-meta {
+    color: #813c54;
+}
+
+.syllabus-time {
+    background-color: rgba(82, 115, 158, 0.1);
+    color: #52739e;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+
+.syllabus-card.planned .syllabus-time {
+    background-color: rgba(129, 60, 84, 0.1);
+    color: #813c54;
+}
+
+.syllabus-topic {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #505050;
+    margin-bottom: 8px;
+    font-family: 'Roboto Slab', serif;
+}
+
+.syllabus-description {
+    color: #666666;
+    line-height: 1.6;
+    font-size: 0.95em;
+}
+
+.syllabus-badge {
+    display: inline-block;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    margin-right: 8px;
+    background: #f0f0f0;
+    color: #666;
+}
+
+.syllabus-badge.setup {
+    background: rgba(184, 134, 11, 0.1);
+    color: #b8860b;
+}
+
+.syllabus-badge.hitl {
+    background: rgba(82, 115, 158, 0.1);
+    color: #52739e;
+}
+
+.syllabus-badge.dev {
+    background: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+}
+
+@media (prefers-color-scheme: dark) {
+    .syllabus-card {
+        background: #1e1e1e;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    .syllabus-card:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        background: #252525;
+    }
+    .syllabus-topic {
+        color: #e0e0e0;
+    }
+    .syllabus-description {
+        color: #b0b0b0;
+    }
+    .syllabus-time {
+        background-color: rgba(82, 115, 158, 0.2);
+        color: #a0c0e0;
+    }
+    .syllabus-card.planned .syllabus-time {
+        background-color: rgba(129, 60, 84, 0.2);
+        color: #e0a0b8;
+    }
+}
+
+/* ==========================================================================
+   Join Page Styling
+   ========================================================================== */
+.join-form {
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.checkbox-group {
+    margin-bottom: 10px;
+}
+
+.checkbox-group label {
+    font-weight: normal;
+    display: inline-block;
+    margin-left: 5px;
+    margin-bottom: 8px;
+    cursor: pointer;
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+button.submit-btn {
+    background-color: #0056b3;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+button.submit-btn:hover {
+    background-color: #004494;
+}
+
+@media (prefers-color-scheme: dark) {
+    .join-form {
+        background-color: #222;
+        border-color: #444;
+    }
+
+    .form-group label {
+        color: #ddd;
+    }
+
+    input[type="text"],
+    textarea {
+        background-color: #333;
+        color: #fff;
+        border-color: #555;
+    }
+
+    button.submit-btn {
+        background-color: #28a745;
+    }
+
+    button.submit-btn:hover {
+        background-color: #218838;
+    }
+}

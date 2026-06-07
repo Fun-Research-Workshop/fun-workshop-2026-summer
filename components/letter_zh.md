@@ -1,4 +1,4 @@
-# ClawTwin Initiative & Workshop
+# 写在前面：关于 ClawTwin 探索计划与夏季工坊
 
 终于有时间给各位写点东西了，关于这个探索活动和工坊分别是干嘛的、有啥期待，以及一些写在网页上了但是可能没人看的内容。
 
@@ -20,14 +20,15 @@
 
 因此我发起了这个 Initiative。既然不清楚，那么就探索一下吧，毕竟也是研究这个的。当然，我不觉得这应该是一个技术宅的聚会，未来和我们每个人都有关，也会由所有人来塑造。融入多种视角当然是重要的，所以无论你来自什么背景、想要怎么参与，都非常欢迎！
 
-这个 Initiative 的目标就是探索可能性，不设限制。欢迎大家分享自己觉得有趣的任何方向、议题，识别志同道合的朋友，一起探索。活动准备期间和不少朋友聊过想法，我们识别了好多我们不知道、需要探索的话题：怎么交互、怎么授权、怎么保护隐私、怎么利用现有基础设施，人对它们的定位会是什么、它们可以完全自由行为吗等等。
+这个 Initiative 的目标就是探索可能性，不设限制。欢迎大家分享自己觉得有趣的任何方向、议题，识别志合道合的朋友，一起探索。活动准备期间和不少朋友聊过想法，我们识别了好多我们不知道、需要探索的话题：怎么交互、怎么授权、怎么保护隐私、怎么利用现有基础设施，人对它们的定位会是什么、它们可以完全自由行为吗等等。
 
 一方面抛砖引玉，一方面准备一些基础设施，我这几天做了下面的项目：
-* [agent-comm](https://github.com/BillShiyaoZhang/agent-comm/)：一个 agent skill，可以维护端到端（P2P）的 agents 间通信。
-* [agent-comm-platform](https://github.com/BillShiyaoZhang/agent-comm-platform)：为 agent-comm 提供身份认证、内网穿透、消息队列服务。支持 platform 之间消息路由。支持合规消息解密（如中国大陆要求平台方提供消息记录）。
-* [agent-collaboration-web](https://github.com/BillShiyaoZhang/agent-collaboration-web)：面向用户，基于 agent-comm 和 platform 提供随时随地的 agent 连接。计划支持人在回路（human-in-the-loop）决策、agents 间交易确认、agents 联系人管理等功能。也在同步开发 iOS app。
 
-## Workshop
+- **[agent-comm](https://github.com/BillShiyaoZhang/agent-comm/)**：一个 agent skill，可以维护端到端（P2P）的 agents 间通信。
+- **[agent-comm-platform](https://github.com/BillShiyaoZhang/agent-comm-platform)**：为 agent-comm 提供身份认证、内网穿透、消息队列服务。支持 platform 之间消息路由。支持合规消息解密（如中国大陆要求平台方提供消息记录）。
+- **[agent-collaboration-web](https://github.com/BillShiyaoZhang/agent-collaboration-web)**：面向用户，基于 agent-comm 和 platform 提供随时随地的 agent 连接。计划支持人在回路（human-in-the-loop）决策、agents 间交易确认、agents 联系人管理等功能。也在同步开发 iOS app。
+
+## 工坊 (Workshop)
 
 开始决定做 workshop 是因为在前期准备的时候，不少朋友说很感兴趣、但还没用过 OpenClaw 或者 Hermes 这种智能体，担心跟不上。
 
@@ -35,27 +36,25 @@
 
 以及大家在报名表中的选择，workshop 的内容变成了现在的样子：
 
---这里比较基础--
-
+### 基础阶段
 1. OpenClaw 或 Hermes 搭建及基本使用
 2. 如何调教（定制）你的 agent
 3. Agent 常见设计模式实践
 
---这里开始进阶--
-
+### 进阶阶段
 4. 使用 agent 时需要考虑的大模型特性
 5. 针对落地场景的 agent 开发
 
---这里开始高阶--
-
+### 高阶阶段
 6. 使用知识图谱和本体论来替代 agent 记忆
 7. agent-comm, agent-comm-platform, agent-collaboration-web 等项目设计思路解析
 
---下面需要等 speakers 确认--
-
+### 待讲师确认
 8. 训练、微调、迭代用于 agent 的定制模型
 9. 密码学在 agent 当中的应用
 10. 怎么分析用户与 agent 的交互
+
+---
 
 以上为大致课程顺序，当然，欢迎反馈，可以再调整。可能一节课能覆盖多个话题，也可能一个话题要花很久。
 
@@ -63,25 +62,14 @@
 
 ## 时间、地点、人数、费用、线上参与
 
-时间：
-* 每周一次，先是 1 小时的 Workshop，接着 2 小时的 Initiative
-* 第一次活动是 6 月 18 日 14:30-17:30。我们第一次活动确定一个每周固定的时间
+| 方面 | 详情 |
+| :--- | :--- |
+| **时间** | • 每周一次，先是 1 小时的 Workshop，接着 2 小时的 Initiative<br>• **第一次活动是 6 月 18 日 14:30-17:30**。我们第一次活动确定一个每周固定的时间 |
+| **地点** | Cozy Coffee，西浦太仓校区 E 栋一楼 |
+| **人数** | • **Initiative:** 不限人数（建议 30 人左右，以免拥挤）。<br>• **Workshop:** 限 30 人（为保证实操辅导效果）。 |
+| **费用** | • **Initiative:** 各位在 Cozy 消费入场即可。<br>• **Workshop:** 每节课 ¥50，如果你也参加当天的 Initiative ¥40。 |
+| **线上参与** | • **Initiative:** 不设固定的线上参与，因为很难联通线上和线下的讨论。但我们欢迎任何有趣的主题演讲 :D<br>• **Workshop:** 可以提供线上。但不建议，因为在这种实操工坊，speakers 几乎不可能很好的照顾线上。 |
 
-地点：Cozy Coffee，西浦太仓校区 E 栋一楼
-
-人数：
-* Initiative 不限人数。但我估计 30 人就好了，不然有点挤..
-* Workshop 限 30 人。再多真的照顾不过来了..
-
-费用：
-* Initiative 各位在 Cozy 消费入场即可
-* Workshop 每节课 ¥50，如果你也参加当天的 Initiative ¥40
-
-线上参与：
-* Initiative 不设固定的线上参与，因为很难联通线上和线下的讨论。但我们欢迎任何有趣的主题演讲 :D
-* Workshop 可以提供线上。但不建议，因为在这种实操工坊，speakers 几乎不可能很好的照顾线上
-
-## 网站
-[https://fun-research-workshop.github.io/fun-workshop-2026-summer/](https://fun-research-workshop.github.io/fun-workshop-2026-summer/)
-
-微信群毕竟信息一多一杂就不好翻了，网站应该可以提供最全、最新、实时的信息... 求求了！看看吧！
+<div class="letter-footer">
+请通过上方导航栏查看更详细的日程、常见问题解答，或立即加入我们！
+</div>
