@@ -6,17 +6,17 @@ This repository contains the source code and content for the Fun Workshop 2026 S
 
 ## Core Information Index
 
-- [Letter (English)](components/letter_en.md) - Coordinator's introductory letter, initiative background, and overview of projects.
-- [Letter (Chinese)](components/letter_zh.md) - Coordinator's introductory letter, initiative background, and overview of projects (Chinese).
-- [Program (English)](components/program_en.md) - Program tracks (ClawTwin & OpenClaw Workshop), weekly coffee party logistics, warning notes, and co-organizers.
-- [Program (Chinese)](components/program_zh.md) - Program tracks (ClawTwin & OpenClaw Workshop), weekly coffee party logistics, warning notes, and co-organizers (Chinese).
-- [Syllabus (English)](components/syllabus_en.md) - Weekly course schedules, topics (basic to advanced), prerequisites, and fees.
-- [Syllabus (Chinese)](components/syllabus_zh.md) - Weekly course schedules, topics (basic to advanced), prerequisites, and fees (Chinese).
-- [Detailed Syllabus](syllabus-detailed.md) - Exhaustive per-session plan with course rhythm, topics, hands-on tasks, and acceptance criteria.
-- [FAQ (English)](components/faq_en.md) - Frequently Asked Questions regarding personal agents vs commercial LLMs, privacy/security, and requirements.
-- [FAQ (Chinese)](components/faq_zh.md) - Frequently Asked Questions regarding personal agents vs commercial LLMs, privacy/security, and requirements (Chinese).
-- [Join Us (English)](components/join_en.md) - Volunteer application form, roles, and instructions.
-- [Join Us (Chinese)](components/join_zh.md) - Volunteer application form, roles, and instructions (Chinese).
+- [Frequently Asked Questions](components/faq_en.md) - Here are some frequently asked questions about Fun Workshop, the ClawTwin Exploration Program, and the OpenClaw Summer Workshop. If you have other que...
+- [常见问题解答 (Chinese)](components/faq_zh.md) - 这里收集了关于 Fun Workshop、ClawTwin 探索计划以及 OpenClaw 夏季工坊的一些常见问题。如果你有其他疑问，欢迎随时联系我们！
+- [Join ClawTwin Exploration Program](components/join_en.md) - Whether you're a developer, designer, AI ethics researcher, or just curious — we have a place for you!
+- [加入 ClawTwin 探索计划 (Chinese)](components/join_zh.md) - 无论你是开发者、设计师、AI 伦理研究者，还是单纯好奇 — 这里都有你的位置！
+- [A Word on the ClawTwin Initiative & Workshop](components/letter_en.md) - Finally, I have some time to write down some thoughts for you all—about what this exploration initiative and workshop are actually for, what to expect...
+- [写在前面：关于 ClawTwin 探索计划与夏季工坊 (Chinese)](components/letter_zh.md) - 终于有时间给各位写点东西了，关于这个探索活动和工坊分别是干嘛的、有啥期待，以及一些写在网页上了但是可能没人看的内容。
+- [About this Workshop](components/program_en.md) - This summer, Fun Workshop presents two parallel tracks designed to spark your curiosity and expand your horizons.
+- [关于本坊 (Chinese)](components/program_zh.md) - 这个夏天，Fun Workshop 带来了两个平行活动 Track，点燃你的好奇心，拓展你的视野。
+- [Workshop Syllabus](components/syllabus_en.md) - This syllabus is designed as a zero-to-one workshop path for beginners. It starts with setup and model basics, then moves toward customization, agent ...
+- [课程安排 (Chinese)](components/syllabus_zh.md) - 这门工坊面向零基础参与者设计，从环境搭建和大模型基础出发，逐步走向定制化、Agent 设计模式与去中心化网络协同。
+- [Workshop Syllabus — Detailed Plan](syllabus-detailed.md) - > Per-session detail for the Fun Workshop Summer 2026 series. Pairs with the
 
 ## Key Metadata
 - **Venue**: Cozy Coffee, 1st Floor, E Building, XJTLU Taicang Campus, Suzhou, China.
